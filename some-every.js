@@ -1,45 +1,78 @@
 /*
-Write a function called hasOddNumber which accepts an array and returns true if the array contains at least one odd number, otherwise it returns false.
+Write a function called hasOddNumber which accepts an array and returns true 
+if the array contains at least one odd number, otherwise it returns false.
 
 Examples:
     hasOddNumber([1,2,2,2,2,2,4]) // true
     hasOddNumber([2,2,2,2,2,4]) // false
 */
 
-function hasOddNumber(arr) {}
+function hasOddNumber(arr) {
+    const bool = arr.some(function (value) {
+        return value % 2 !== 0;
+    })
+    return bool;
+}
 
 /*
-Write a function called hasAZero which accepts a number and returns true if that number contains at least one zero. Otherwise, the function should return false
+Write a function called hasAZero which accepts a number and returns true if 
+that number contains at least one zero. Otherwise, the function should return false
 
 Examples:
     hasAZero(3332123213101232321) // true
     hasAZero(1212121) // false
 */
 
-function hasAZero(num) {}
+function hasAZero(num) {
+    let digits = num.toString().split('');
+    const bool = digits.some(function (value) {
+        return value === '0';
+    })
+    return bool;
+}
 
 /*
-Write a function called hasOnlyOddNumbers which accepts an array and returns true if every single number in the array is odd. If any of the values in the array are not odd, the function should return false. 
+Write a function called hasOnlyOddNumbers which accepts an array and returns 
+true if every single number in the array is odd. If any of the values in the 
+array are not odd, the function should return false. 
 
 Examples:
     hasOnlyOddNumbers([1,3,5,7]) // true
     hasOnlyOddNumbers([1,2,3,5,7]) // false
 */
 
-function hasOnlyOddNumbers(arr) {}
+function hasOnlyOddNumbers(arr) {
+    const bool = arr.every(function (value) {
+        return value % 2 !== 0;
+    })
+    return bool;
+}
 
 /*
-Write a function called hasNoDuplicates which accepts an array and returns true if there are no duplicate values (more than one element in the array that has the same value as another). If there are any duplicates, the function should return false.
+Write a function called hasNoDuplicates which accepts an array and returns 
+true if there are no duplicate values (more than one element in the array that has the same value as another). 
+If there are any duplicates, the function should return false.
 
 Examples:
     hasNoDuplicates([1,2,3,1]) // false
     hasNoDuplicates([1,2,3]) // true
 */
 
-function hasNoDuplicates(arr) {}
+
+function hasNoDuplicates(array) {
+    const bool = array.every(function(value,index){
+        return array.indexOf(value) === index;
+    })
+    return bool;
+}
+// const bool = arr.some(function(value, index){
+//     return console.log(value !== value);
+// })
+
 
 /*
-Write a function called hasCertainKey which accepts an array of objects and a key, and returns true if every single object in the array contains that key. Otherwise it should return false.
+Write a function called hasCertainKey which accepts an array of objects and a key, 
+and returns true if every single object in the array contains that key. Otherwise it should return false.
 
 Examples:
     var arr = [
@@ -53,10 +86,17 @@ Examples:
     hasCertainKey(arr,'isCatOwner') // false
 */
 
-function hasCertainKey(arr, key) {}
+function hasCertainKey(arr, key) {
+    const bool = arr.every(function (obj) {
+        return obj[key];
+    })
+    return bool;
+}
 
 /*
-Write a function called hasCertainValue which accepts an array of objects and a key, and a value, and returns true if every single object in the array contains that value for the specific key. Otherwise it should return false.
+Write a function called hasCertainValue which accepts an array of objects and a
+key, and a value, and returns true if every single object in the array contains 
+that value for the specific key. Otherwise it should return false.
 
 Examples:
     var arr = [
@@ -71,4 +111,9 @@ Examples:
     
 */
 
-function hasCertainValue(arr, key, searchValue) {}
+function hasCertainValue(arr, key, searchValue) {
+    const bool = arr.every(function (obj) {
+        return obj[key] === searchValue;
+    })
+    return bool;
+}
